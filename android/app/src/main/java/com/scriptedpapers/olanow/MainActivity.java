@@ -49,6 +49,11 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+        SuggestionItem messageTab = new SuggestionItem();
+        messageTab.setIsMessageTrainTicket(true);
+
+        suggestionList.add(messageTab);
+
         CalendarUtils.getCalendarEvent(MainActivity.this, true);
 
 

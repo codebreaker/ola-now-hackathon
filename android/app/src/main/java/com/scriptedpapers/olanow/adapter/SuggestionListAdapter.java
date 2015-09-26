@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
@@ -31,6 +32,7 @@ public class SuggestionListAdapter extends ArrayAdapter<SuggestionItem> {
     ArrayList<SuggestionItem> suggestionList;
     Context context;
 
+
     public SuggestionListAdapter(Context context, ArrayList<SuggestionItem> suggestionList) {
         super(context, 0, suggestionList);
 
@@ -52,22 +54,28 @@ public class SuggestionListAdapter extends ArrayAdapter<SuggestionItem> {
 
         ViewHolder holder = new ViewHolder(convertView);
 
+        holder.rideNowButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         if(suggestion.isToday()) {
 
             SimpleDateFormat df = new SimpleDateFormat("yyyy MMMM, dd");
             String formattedDate = df.format(new Date().getTime());
 
-            holder.detailView.setVisibility(View.GONE);
 
             holder.todayView.setVisibility(View.VISIBLE);
-            holder.eventLayout.setVisibility(View.GONE);
             holder.todayView.setText("Today ("+formattedDate+")");
         } else if(suggestion.getEvent() != null) {
 
             holder.detailView.setVisibility(View.VISIBLE);
 
-            holder.todayView.setVisibility(View.GONE);
             holder.eventLayout.setVisibility(View.VISIBLE);
+
+            holder.eventsIcon.setVisibility(View.VISIBLE);
 
             SimpleDateFormat df = new SimpleDateFormat("hh:mm a ");
             String formattedDate = df.format(suggestion.getEvent().getEventDate().getTime());
@@ -82,6 +90,12 @@ public class SuggestionListAdapter extends ArrayAdapter<SuggestionItem> {
                 holder.eventLocation.setText(suggestion.getEvent().getEventLocation());
             }
 
+        } else if(suggestion.isMessageTrainTicket()) {
+
+            holder.messagesIcon.setVisibility(View.VISIBLE);
+
+            holder.detailView.setVisibility(View.VISIBLE);
+            holder.mesageLayout.setVisibility(View.VISIBLE);
         }
 
         return convertView ;
@@ -96,17 +110,32 @@ public class SuggestionListAdapter extends ArrayAdapter<SuggestionItem> {
         @InjectView(R.id.eventLayout)
         LinearLayout eventLayout;
 
+        @InjectView(R.id.mesageLayout)
+        LinearLayout mesageLayout;
+
         @InjectView(R.id.rideNowButton) TextView rideNowButton;
         @InjectView(R.id.eventName) TextView eventName;
         @InjectView(R.id.eventTime) TextView eventTime;
         @InjectView(R.id.eventLocationLayout)
         LinearLayout eventLocationLayout;
         @InjectView(R.id.eventLocation) TextView eventLocation;
+
+
+        @InjectView(R.id.messagesIcon)
+        ImageView messagesIcon;
+        @InjectView(R.id.eventsIcon) ImageView eventsIcon;
+
         public ViewHolder(View view) {
             ButterKnife.inject(this, view);
 
             todayView.setVisibility(View.GONE);
             eventLayout.setVisibility(View.GONE);
+            mesageLayout.setVisibility(View.GONE);
+
+            detailView.setVisibility(View.GONE);
+
+            messagesIcon.setVisibility(View.GONE);
+            eventsIcon.setVisibility(View.GONE);
         }
     }
 }

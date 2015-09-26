@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">OLA Now</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="x_app_token">fdf216fdfa7048d1af0a3373cb1a65bd</string>
+    <string name="test_auth_token">Bearer 9f4950cf83ef469ca8c2cd9e8d1ea48d</string>
+    <string name="title_book_a_ride">Book a Ride</string>
+</resources>
+

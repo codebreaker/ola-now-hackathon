@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:background="#E0E0E0">
+
+    <RelativeLayout
+        android:id="@+id/headerView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="#88555555"
+            android:background="@drawable/background" />
+
+
+        <LinearLayout
+            android:id="@+id/imageLayout"
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ola_logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text=" OLA"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="#DDDC1B"
+                android:textSize="30dp"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="  Now"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:textSize="30dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="A Powerful Cab Assitant"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_below="@id/imageLayout"
+            android:textStyle="bold"
+            android:textColor="#DDDC1B"
+            android:textSize="18dp"/>
+
+    </RelativeLayout>
+
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_below="@id/headerView"
+        android:layout_width="match_parent"
+        android:divider="#00000000"
+        android:layout_height="match_parent"></ListView>
+
+</RelativeLayout>

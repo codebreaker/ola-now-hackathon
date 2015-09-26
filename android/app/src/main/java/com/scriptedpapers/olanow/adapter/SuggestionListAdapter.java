@@ -31,6 +31,7 @@ public class SuggestionListAdapter extends ArrayAdapter<SuggestionItem> {
     ArrayList<SuggestionItem> suggestionList;
     Context context;
 
+
     public SuggestionListAdapter(Context context, ArrayList<SuggestionItem> suggestionList) {
         super(context, 0, suggestionList);
 

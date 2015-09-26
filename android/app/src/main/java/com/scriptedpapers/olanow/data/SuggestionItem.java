@@ -8,6 +8,8 @@ public class SuggestionItem {
     boolean isToday;
     boolean isTomorrow;
 
+    boolean isMessageTrainTicket;
+
     Event event;
 
     public SuggestionItem() {
@@ -27,6 +29,15 @@ public class SuggestionItem {
         isTomorrow = false;
     }
 
+    public void setIsMessageTrainTicket(boolean isMessageTrainTicket) {
+        this.isMessageTrainTicket = isMessageTrainTicket;
+
+        isToday = false;
+        isTomorrow = false;
+
+        event = null;
+    }
+
     public boolean isToday() {
         return isToday;
     }
@@ -41,5 +52,9 @@ public class SuggestionItem {
 
     public Event getEvent() {
         return event;
+    }
+
+    public boolean isMessageTrainTicket() {
+        return isMessageTrainTicket;
     }
 }

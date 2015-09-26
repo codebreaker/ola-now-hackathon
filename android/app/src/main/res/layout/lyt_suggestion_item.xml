@@ -94,7 +94,56 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/mesageLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@id/rideNowButton"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="IRCTC Ticket Booked (1234567890)"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Brindavan Exp"
+                android:textColor="#000000"
+                android:textSize="16dp" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="Status ; CNF"
+                    android:textColor="#555555"
+                    android:textSize="16dp" />
+
+        </LinearLayout>
+
+
+
         <ImageView
+            android:id="@+id/messagesIcon"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp"
+            android:background="@drawable/ic_messages" />
+
+        <ImageView
+            android:id="@+id/eventsIcon"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_alignParentBottom="true"

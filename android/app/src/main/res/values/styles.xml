@@ -5,4 +5,44 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="SettingTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">43dp</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="SettingNormalTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">43dp</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+
+    <style name="SettingDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1.3dp</item>
+        <item name="android:layout_marginLeft">8.3dp</item>
+        <item name="android:layout_marginRight">8.3dp</item>
+        <item name="android:background">#505151</item>
+    </style>
+
+    <style name="SettingThisDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:background">#999999</item>
+    </style>
+
 </resources>

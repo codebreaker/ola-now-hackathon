@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.scriptedpapers.olanow.ReminderScreen">
+
+    <LinearLayout
+        android:id="@+id/top_menu_panel"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="#DDDC1B"
+        android:paddingLeft="10dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Reminder Screen"
+            android:textColor="@android:color/white"
+            android:textSize="23dp" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/reminderListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
+
+
+</LinearLayout>

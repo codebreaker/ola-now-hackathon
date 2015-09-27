@@ -112,13 +112,6 @@
                 android:textStyle="bold" />
 
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Brindavan Exp"
-                android:textColor="#000000"
-                android:textSize="16dp" />
-
 
                 <TextView
                     android:layout_width="match_parent"
@@ -131,6 +124,54 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/reminderLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@id/rideNowButton"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/ic_reminder" />
+
+
+                <TextView
+                    android:id="@+id/ReminderName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Event Name"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:paddingLeft="5dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+
+            <TextView
+                android:id="@+id/reminderTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:singleLine="true"
+                android:text="Status ; CNF"
+                android:textColor="#555555"
+                android:textSize="16dp" />
+
+        </LinearLayout>
 
 
         <ImageView

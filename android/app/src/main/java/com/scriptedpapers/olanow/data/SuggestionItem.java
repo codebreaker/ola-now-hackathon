@@ -11,11 +11,13 @@ public class SuggestionItem {
     boolean isMessageTrainTicket;
 
     Event event;
+    Reminder reminder;
 
     public SuggestionItem() {
 
         isToday = false;
         isTomorrow = false;
+        isMessageTrainTicket = false;
         event = null;
      }
 
@@ -38,6 +40,16 @@ public class SuggestionItem {
         event = null;
     }
 
+    public void setReminder(Reminder reminder) {
+        this.reminder = reminder;
+        isMessageTrainTicket = false;
+
+        isToday = false;
+        isTomorrow = false;
+
+        event = null;
+    }
+
     public boolean isToday() {
         return isToday;
     }
@@ -52,6 +64,10 @@ public class SuggestionItem {
 
     public Event getEvent() {
         return event;
+    }
+
+    public Reminder getReminder() {
+        return reminder;
     }
 
     public boolean isMessageTrainTicket() {

@@ -96,6 +96,18 @@ public class SuggestionListAdapter extends ArrayAdapter<SuggestionItem> {
 
             holder.detailView.setVisibility(View.VISIBLE);
             holder.mesageLayout.setVisibility(View.VISIBLE);
+        } else if(suggestion.getReminder() != null) {
+
+            holder.reminderLayout.setVisibility(View.VISIBLE);
+
+            holder.detailView.setVisibility(View.VISIBLE);
+            holder.ReminderName.setText(suggestion.getReminder().getReminderName());
+
+
+            SimpleDateFormat df = new SimpleDateFormat("hh:mm a ");
+            String formattedDate = df.format(suggestion.getReminder().getReminderDate().getTime());
+
+            holder.reminderTime.setText(formattedDate);
         }
 
         return convertView ;
@@ -113,6 +125,9 @@ public class SuggestionListAdapter extends ArrayAdapter<SuggestionItem> {
         @InjectView(R.id.mesageLayout)
         LinearLayout mesageLayout;
 
+        @InjectView(R.id.reminderLayout)
+        LinearLayout reminderLayout;
+
         @InjectView(R.id.rideNowButton) TextView rideNowButton;
         @InjectView(R.id.eventName) TextView eventName;
         @InjectView(R.id.eventTime) TextView eventTime;
@@ -125,12 +140,17 @@ public class SuggestionListAdapter extends ArrayAdapter<SuggestionItem> {
         ImageView messagesIcon;
         @InjectView(R.id.eventsIcon) ImageView eventsIcon;
 
+
+        @InjectView(R.id.ReminderName) TextView ReminderName;
+        @InjectView(R.id.reminderTime) TextView reminderTime;
+
         public ViewHolder(View view) {
             ButterKnife.inject(this, view);
 
             todayView.setVisibility(View.GONE);
             eventLayout.setVisibility(View.GONE);
             mesageLayout.setVisibility(View.GONE);
+            reminderLayout.setVisibility(View.GONE);
 
             detailView.setVisibility(View.GONE);
 

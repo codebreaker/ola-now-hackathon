@@ -1,0 +1,265 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <LinearLayout
+        android:id="@+id/top_menu_panel"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="#DDDC1B"
+        android:paddingLeft="10dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Setting"
+            android:textColor="@android:color/white"
+            android:textSize="23dp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:id="@+id/settingHomeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".MainActivity" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    style="@style/SettingTitle"
+                    android:text="Fetch Detail" />
+
+                <View style="@style/SettingDivider" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        style="@style/SettingNormalTitle"
+                        android:text="From Calendar" />
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:checked="true"
+                        android:layout_marginRight="25dp"
+                        android:background="#00000000" />
+                </RelativeLayout>
+
+
+                <View style="@style/SettingThisDivider" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        style="@style/SettingNormalTitle"
+                        android:text="From SMS" />
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:checked="true"
+                        android:layout_marginRight="25dp"
+                        android:background="#00000000" />
+                </RelativeLayout>
+
+
+                <View style="@style/SettingDivider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    style="@style/SettingTitle"
+                    android:text="Remind Me To Book Cab" />
+
+                <View style="@style/SettingDivider" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        style="@style/SettingNormalTitle"
+                        android:text="For Office At Morning" />
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:checked="true"
+                        android:layout_marginRight="25dp"
+                        android:background="#00000000" />
+                </RelativeLayout>
+
+                <View style="@style/SettingThisDivider" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        style="@style/SettingNormalTitle"
+                        android:text="For Home At Evening"  />
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:checked="true"
+                        android:layout_marginRight="25dp"
+                        android:background="#00000000" />
+                </RelativeLayout>
+
+                <View style="@style/SettingDivider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    style="@style/SettingTitle"
+                    android:text="Notification" />
+
+                <View style="@style/SettingDivider" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        style="@style/SettingNormalTitle"
+                        android:text="Show Notification in Status Bar" />
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:checked="true"
+                        android:layout_marginRight="25dp"
+                        android:background="#00000000" />
+                </RelativeLayout>
+
+                <View style="@style/SettingThisDivider" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        style="@style/SettingNormalTitle"
+                        android:text="Sound" />
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:checked="true"
+                        android:layout_marginRight="25dp"
+                        android:background="#00000000" />
+                </RelativeLayout>
+
+                <View style="@style/SettingThisDivider" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        style="@style/SettingNormalTitle"
+                        android:text="Vibrate"  />
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:checked="true"
+                        android:layout_marginRight="25dp"
+                        android:background="#00000000" />
+                </RelativeLayout>
+
+                <View style="@style/SettingDivider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    style="@style/SettingTitle"
+                    android:text="General" />
+
+                <View style="@style/SettingDivider" />
+
+
+                    <TextView
+                        style="@style/SettingNormalTitle"
+                        android:text="About us" />
+
+
+                <View style="@style/SettingThisDivider" />
+
+
+
+                    <TextView
+                        style="@style/SettingNormalTitle"
+                        android:text="Feed Back" />
+
+
+                <View style="@style/SettingThisDivider" />
+
+
+
+                    <TextView
+                        style="@style/SettingNormalTitle"
+                        android:text="Sign Out"  />
+
+
+
+                <View style="@style/SettingDivider" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

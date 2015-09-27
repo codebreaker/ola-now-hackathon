@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="300dp"
-    android:layout_height="300dp"
+    android:layout_height="200dp"
     android:orientation="vertical"
     android:paddingTop="15dp" >
 
@@ -23,6 +23,7 @@
         android:layout_below="@+id/ReminderName"
         android:text="Set Date Here"
         android:padding="5dp"
+        android:textSize="18dp"
         android:singleLine="true" />
 
 
@@ -32,7 +33,19 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/setDateTextView"
         android:text="Set Time Here"
+        android:textSize="18dp"
         android:padding="5dp"
+        android:singleLine="true" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/setTimeTextView"
+        android:textSize="18dp"
+        android:text="Click on Date and Time to Modify it."
+        android:padding="5dp"
+        android:textColor="#CCCCCC"
         android:singleLine="true" />
 
     <LinearLayout

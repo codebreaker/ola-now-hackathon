@@ -9,7 +9,7 @@ public class Reminder {
 
     String reminderId;
     String reminderName;
-    Date reminderDate;
+    long reminderDate;
 
     public String getReminderId() {
         return reminderId;
@@ -20,7 +20,7 @@ public class Reminder {
     }
 
     public Date getReminderDate() {
-        return reminderDate;
+        return new Date(reminderDate);
     }
 
     public void setReminderId(String reminderId) {
@@ -32,6 +32,6 @@ public class Reminder {
     }
 
     public void setReminderDate(Date reminderDate) {
-        this.reminderDate = reminderDate;
+        this.reminderDate = reminderDate.getTime();
     }
 }

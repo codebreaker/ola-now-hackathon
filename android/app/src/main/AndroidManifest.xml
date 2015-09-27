@@ -30,6 +30,9 @@
             android:name=".ReminderScreen"
             android:label="@string/title_activity_reminder_screen" >
         </activity>
+
+        <receiver android:name=".utils.ReminderReceiver" >
+        </receiver>
     </application>
 
 </manifest>

@@ -2,6 +2,7 @@ package com.scriptedpapers.olanow;
 
 import android.app.Application;
 
+import com.scriptedpapers.olanow.database.DatabaseHelper;
 import com.scriptedpapers.olanow.http.OlaService;
 
 import retrofit.RestAdapter;
@@ -23,13 +24,14 @@ public class OlaNow extends Application {
                 .setLogLevel(RestAdapter.LogLevel.FULL);
         RestAdapter adapter = builder.build();
         service = adapter.create(OlaService.class);
+        DatabaseHelper.getHelper(this);
     }
 
     public static OlaService getOlaService(){
         return service;
     }
 
-    public static OlaNow getInstace(){
+    public static OlaNow getInstance(){
         return app;
     }
 }

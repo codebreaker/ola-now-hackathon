@@ -1,5 +1,8 @@
 package com.scriptedpapers.olanow.data;
 
+import com.google.gson.annotations.SerializedName;
+import com.j256.ormlite.field.DatabaseField;
+
 import java.util.Date;
 
 /**
@@ -7,9 +10,16 @@ import java.util.Date;
  */
 public class Reminder {
 
+    public static final String REMINDER_ID="reminderId";
+    public static final String REMINDER_NAME="reminderName";
+    public static final String REMINDER_DATE="reminderDate";
+
+    @DatabaseField(unique = true)
     String reminderId;
+    @DatabaseField
     String reminderName;
-    Date reminderDate;
+    @DatabaseField
+    long reminderDate;
 
     public String getReminderId() {
         return reminderId;
@@ -19,7 +29,7 @@ public class Reminder {
         return reminderName;
     }
 
-    public Date getReminderDate() {
+    public long getReminderDate() {
         return reminderDate;
     }
 
@@ -31,7 +41,7 @@ public class Reminder {
         this.reminderName = reminderName;
     }
 
-    public void setReminderDate(Date reminderDate) {
+    public void setReminderDate(long reminderDate) {
         this.reminderDate = reminderDate;
     }
 }

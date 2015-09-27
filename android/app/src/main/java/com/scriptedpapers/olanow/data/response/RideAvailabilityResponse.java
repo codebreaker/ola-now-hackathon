@@ -8,14 +8,18 @@ import com.scriptedpapers.olanow.data.RideEstimate;
 import java.util.List;
 
 /**
- * Created by jagadeeshwarank on 26/9/15.
+ * Created by jagadeeshwarank on 27/9/15.
  */
-public class CheckRideResponse {
+public class RideAvailabilityResponse {
     @SerializedName("categories")
     @Expose
     private List<RideCategory> rideCategoryList;
 
-    @SerializedName("ride_estimate")
-    @Expose
-    private List<RideEstimate> rideEstimateList;
+    public List<RideCategory> getRideCategoryList() {
+        return rideCategoryList;
+    }
+
+    public void setRideCategoryList(List<RideCategory> rideCategoryList) {
+        this.rideCategoryList = rideCategoryList;
+    }
 }

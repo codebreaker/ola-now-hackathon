@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
-
 import com.scriptedpapers.olanow.adapter.SuggestionListAdapter;
 import com.scriptedpapers.olanow.data.Event;
 import com.scriptedpapers.olanow.data.SuggestionItem;
@@ -33,10 +32,8 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.inject(this);
 
         suggestionList = new ArrayList<SuggestionItem>();
-
         SuggestionItem todayTab = new SuggestionItem();
         todayTab.setToday();
-
         suggestionList.add(todayTab);
 
         ArrayList<Event> todayEventList =  CalendarUtils.getCalendarEvent(MainActivity.this, true);
@@ -55,8 +52,6 @@ public class MainActivity extends AppCompatActivity {
         suggestionList.add(messageTab);
 
         CalendarUtils.getCalendarEvent(MainActivity.this, true);
-
-
         suggestionListAdapter = new SuggestionListAdapter(MainActivity.this, suggestionList);
         listView.setAdapter(suggestionListAdapter);
     }

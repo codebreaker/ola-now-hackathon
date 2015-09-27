@@ -7,7 +7,9 @@ import android.util.Log;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.dao.GenericRawResults;
 import com.j256.ormlite.stmt.DeleteBuilder;
+import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import com.scriptedpapers.olanow.R;
@@ -122,5 +124,34 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public int getMaxReminderId(){
+        try {
+            Dao<Reminder, Integer> reminderDao = DatabaseHelper.getHelper(context).getReminderDao();
+
+            List<Reminder> selectedZone = reminderDao.queryBuilder().query();
+
+            QueryBuilder<Reminder, Integer> qb = reminderDao.queryBuilder();
+
+            qb.selectRaw(" MAX(reminderId)");
+
+            // the results will contain 2 string values for the min and max
+
+            GenericRawResults<String[]> results = reminderDao.queryRaw(qb.prepareStatementString());
+
+            String[] values = results.getFirstResult();
+            int maxPriority = 0;
+            if (values != null && values.length != 0) {
+                String value = values[0];
+                if (value != null)
+                    maxPriority = Integer.parseInt(value);
+            }
+            return maxPriority;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return -1;
     }
 }

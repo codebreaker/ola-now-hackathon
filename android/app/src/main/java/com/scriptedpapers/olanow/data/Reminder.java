@@ -15,13 +15,13 @@ public class Reminder {
     public static final String REMINDER_DATE="reminderDate";
 
     @DatabaseField(unique = true)
-    String reminderId;
+    int reminderId;
     @DatabaseField
     String reminderName;
     @DatabaseField
     long reminderDate;
 
-    public String getReminderId() {
+    public int getReminderId() {
         return reminderId;
     }
 
@@ -33,7 +33,7 @@ public class Reminder {
         return reminderDate;
     }
 
-    public void setReminderId(String reminderId) {
+    public void setReminderId(int reminderId) {
         this.reminderId = reminderId;
     }
 

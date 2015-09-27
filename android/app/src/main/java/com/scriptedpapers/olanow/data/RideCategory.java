@@ -3,6 +3,8 @@ package com.scriptedpapers.olanow.data;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 /**
  * Created by mahes on 25/9/15.
  */
@@ -39,6 +41,10 @@ public class RideCategory {
     @SerializedName("image")
     @Expose
     private String image;
+
+    @SerializedName("fare_breakup")
+    @Expose
+    private List<FareBreakUp> fareBreakUpList;
 
     public String getRideId() {
         return rideId;
@@ -102,5 +108,13 @@ public class RideCategory {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public List<FareBreakUp> getFareBreakUpList() {
+        return fareBreakUpList;
+    }
+
+    public void setFareBreakUpList(List<FareBreakUp> fareBreakUpList) {
+        this.fareBreakUpList = fareBreakUpList;
     }
 }

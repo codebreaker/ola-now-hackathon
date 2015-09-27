@@ -71,6 +71,10 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.inject(this);
 
 
+        LayoutInflater inflater = getLayoutInflater();
+        ViewGroup header = (ViewGroup)inflater.inflate(R.layout.lyt_header_view, listView, false);
+        menuImageView = (ImageView) header.findViewById(R.id.menuImageView);
+        listView.addHeaderView(header, null, false);
 
         setMenu();
     }
@@ -114,13 +118,34 @@ public class MainActivity extends AppCompatActivity {
             suggestionList.add(reminderTab);
         }
 
-        CalendarUtils.getCalendarEvent(MainActivity.this, true);
 
-        LayoutInflater inflater = getLayoutInflater();
-        ViewGroup header = (ViewGroup)inflater.inflate(R.layout.lyt_header_view, listView, false);
-        menuImageView = (ImageView) header.findViewById(R.id.menuImageView);
-        listView.addHeaderView(header, null, false);
 
+        SuggestionItem tomorrowTab = new SuggestionItem();
+        tomorrowTab.setTomorrow();
+
+        suggestionList.add(tomorrowTab);
+
+        todayEventList =  CalendarUtils.getCalendarEvent(MainActivity.this, false);
+
+        for(int i = 0; i< todayEventList.size(); i++) {
+
+            SuggestionItem eventTab = new SuggestionItem();
+            eventTab.setEvent(todayEventList.get(i));
+            suggestionList.add(eventTab);
+
+        }
+
+
+       reminderList = DatabaseHelper.getTodaysReminders(false);
+
+        for(int i = 0; i < reminderList.size(); i++) {
+
+            SuggestionItem reminderTab = new SuggestionItem();
+
+
+            reminderTab.setReminder(reminderList.get(i));
+            suggestionList.add(reminderTab);
+        }
 
         suggestionListAdapter = new SuggestionListAdapter(MainActivity.this, suggestionList);
         listView.setAdapter(suggestionListAdapter);

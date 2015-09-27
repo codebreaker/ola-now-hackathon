@@ -27,8 +27,8 @@ public class SuggestionItem {
     }
 
     public void setTomorrow() {
-        isToday = true;
-        isTomorrow = false;
+        isToday = false;
+        isTomorrow = true;
     }
 
     public void setIsMessageTrainTicket(boolean isMessageTrainTicket) {

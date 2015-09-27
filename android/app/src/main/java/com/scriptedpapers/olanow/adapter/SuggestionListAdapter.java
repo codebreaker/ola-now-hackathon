@@ -26,6 +26,7 @@ import com.scriptedpapers.olanow.data.SuggestionItem;
 import com.scriptedpapers.olanow.R;
 import com.scriptedpapers.olanow.data.response.EstimateRideResponse;
 import com.scriptedpapers.olanow.data.response.RideAvailabilityResponse;
+import com.scriptedpapers.olanow.utils.CalendarUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -275,6 +276,14 @@ public class SuggestionListAdapter extends ArrayAdapter<SuggestionItem> {
             String formattedDate = df.format(suggestion.getReminder().getReminderDate());
 
             holder.reminderTime.setText(formattedDate);
+        } else if(suggestion.isTomorrow()) {
+
+            SimpleDateFormat df = new SimpleDateFormat("yyyy MMMM, dd");
+            String formattedDate = df.format(CalendarUtils.getTomorrowDate().getTime());
+
+
+            holder.todayView.setVisibility(View.VISIBLE);
+            holder.todayView.setText("Tomorrow ("+formattedDate+")");
         }
 
         return convertView ;

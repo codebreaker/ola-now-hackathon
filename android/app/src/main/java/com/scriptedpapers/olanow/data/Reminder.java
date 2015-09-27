@@ -14,7 +14,7 @@ public class Reminder {
     public static final String REMINDER_NAME="reminderName";
     public static final String REMINDER_DATE="reminderDate";
 
-    @DatabaseField(unique = true)
+    @DatabaseField(unique = true,id = true)
     int reminderId;
     @DatabaseField
     String reminderName;
@@ -29,9 +29,6 @@ public class Reminder {
         return reminderName;
     }
 
-    public long getReminderDate() {
-        return reminderDate;
-    }
 
     public void setReminderId(int reminderId) {
         this.reminderId = reminderId;
@@ -41,7 +38,16 @@ public class Reminder {
         this.reminderName = reminderName;
     }
 
+    public void setReminderDate(Date reminderDate) {
+        this.reminderDate = reminderDate.getTime();
+    }
+
     public void setReminderDate(long reminderDate) {
         this.reminderDate = reminderDate;
+    }
+
+
+    public long getReminderDate() {
+        return reminderDate;
     }
 }

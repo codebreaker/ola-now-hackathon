@@ -26,10 +26,12 @@ import com.scriptedpapers.olanow.adapter.SuggestionListAdapter;
 import com.scriptedpapers.olanow.data.Event;
 import com.scriptedpapers.olanow.data.Reminder;
 import com.scriptedpapers.olanow.data.SuggestionItem;
+import com.scriptedpapers.olanow.database.DatabaseHelper;
 import com.scriptedpapers.olanow.utils.CalendarUtils;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -68,6 +70,15 @@ public class MainActivity extends AppCompatActivity {
 
         ButterKnife.inject(this);
 
+
+
+        setMenu();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
         suggestionList = new ArrayList<SuggestionItem>();
 
         SuggestionItem todayTab = new SuggestionItem();
@@ -90,15 +101,18 @@ public class MainActivity extends AppCompatActivity {
 
         suggestionList.add(messageTab);
 
-        SuggestionItem reminderTab = new SuggestionItem();
 
-        Reminder reminder = new Reminder();
-        reminder.setReminderDate(new Date());
-        reminder.setReminderName("Reminder Trial");
 
-        reminderTab.setReminder(reminder);
+        List<Reminder> reminderList = DatabaseHelper.getTodaysReminders(true);
 
-        suggestionList.add(reminderTab);
+        for(int i = 0; i < reminderList.size(); i++) {
+
+            SuggestionItem reminderTab = new SuggestionItem();
+
+
+            reminderTab.setReminder(reminderList.get(i));
+            suggestionList.add(reminderTab);
+        }
 
         CalendarUtils.getCalendarEvent(MainActivity.this, true);
 
@@ -110,8 +124,6 @@ public class MainActivity extends AppCompatActivity {
 
         suggestionListAdapter = new SuggestionListAdapter(MainActivity.this, suggestionList);
         listView.setAdapter(suggestionListAdapter);
-
-        setMenu();
     }
 
     void setMenu() {

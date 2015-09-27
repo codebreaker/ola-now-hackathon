@@ -272,7 +272,7 @@ public class SuggestionListAdapter extends ArrayAdapter<SuggestionItem> {
 
 
             SimpleDateFormat df = new SimpleDateFormat("hh:mm a ");
-            String formattedDate = df.format(suggestion.getReminder().getReminderDate().getTime());
+            String formattedDate = df.format(suggestion.getReminder().getReminderDate());
 
             holder.reminderTime.setText(formattedDate);
         }

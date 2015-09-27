@@ -58,4 +58,28 @@
         <item name="android:background">#999999</item>
     </style>
 
+    <style name="CancelGrayButton">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">#DDDc1B</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">#000000</item>
+        <item name="android:text">Cancel</item>
+    </style>
+
+    <style name="SetGrayButton">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">#DDDc1B</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">#000000</item>
+        <item name="android:text">Set</item>
+    </style>
+
 </resources>

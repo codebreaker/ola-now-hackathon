@@ -13,9 +13,12 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.scriptedpapers.olanow.ReminderScreen;
 import com.scriptedpapers.olanow.data.Reminder;
 import com.scriptedpapers.olanow.data.SuggestionItem;
 import com.scriptedpapers.olanow.R;
+import com.scriptedpapers.olanow.database.DatabaseHelper;
+import com.scriptedpapers.olanow.utils.SetReminder;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,11 +33,11 @@ import butterknife.InjectView;
  */
 public class ReminderListAdapter extends ArrayAdapter<Reminder> {
 
-    ArrayList<Reminder> reminderlistList;
+    List<Reminder> reminderlistList;
     Context context;
 
 
-    public ReminderListAdapter(Context context, ArrayList<Reminder> reminderlistList) {
+    public ReminderListAdapter(Context context, List<Reminder> reminderlistList) {
         super(context, 0, reminderlistList);
 
         this.context = context;
@@ -50,7 +53,7 @@ public class ReminderListAdapter extends ArrayAdapter<Reminder> {
 
         convertView = mInflater.inflate(R.layout.lyt_reminder_list_item, null);
 
-        Reminder reminder = reminderlistList.get(position);
+        final Reminder reminder = reminderlistList.get(position);
 
         ViewHolder holder = new ViewHolder(convertView);
 
@@ -64,7 +67,14 @@ public class ReminderListAdapter extends ArrayAdapter<Reminder> {
         holder.deleteReminder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                DatabaseHelper.deleteReminderById(reminder.getReminderId());
 
+                SetReminder sr = new SetReminder(context);
+                sr.cancelAlarm(reminder.getReminderId());
+
+                if(context instanceof ReminderScreen) {
+                    ((ReminderScreen) context).updateView();
+                }
             }
         });
 

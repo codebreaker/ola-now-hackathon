@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="300dp"
+    android:orientation="vertical"
+    android:paddingTop="15dp" >
+
+
+
+    <EditText
+        android:id="@+id/ReminderName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Reminder Name"
+        android:padding="5dp"
+        android:singleLine="true" />
+
+
+    <TextView
+        android:id="@+id/setDateTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ReminderName"
+        android:text="Set Date Here"
+        android:padding="5dp"
+        android:singleLine="true" />
+
+
+    <TextView
+        android:id="@+id/setTimeTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/setDateTextView"
+        android:text="Set Time Here"
+        android:padding="5dp"
+        android:singleLine="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/saveLocationButton"
+            style="@style/SetGrayButton" />
+
+
+        <Button
+            android:id="@+id/closeLocationButton"
+            style="@style/CancelGrayButton" />
+    </LinearLayout>
+
+</RelativeLayout>

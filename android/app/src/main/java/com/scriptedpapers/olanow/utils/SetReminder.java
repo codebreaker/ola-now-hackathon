@@ -36,7 +36,7 @@ public class SetReminder {
 	/*
 	 * Delete the Schedule the Alarm matching the intent.
 	 */
-	void cancelAlarm(int reminderIntentId) {
+	public void cancelAlarm(int reminderIntentId) {
 		Intent intent = new Intent(mContext, ReminderReceiver.class);
 
 		PendingIntent pendingIntent = PendingIntent.getBroadcast(

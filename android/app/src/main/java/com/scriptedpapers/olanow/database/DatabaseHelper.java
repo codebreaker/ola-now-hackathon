@@ -14,6 +14,8 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import com.scriptedpapers.olanow.R;
 import com.scriptedpapers.olanow.data.Reminder;
+import com.scriptedpapers.olanow.utils.CalendarUtils;
+import com.squareup.okhttp.internal.Util;
 
 import java.sql.SQLException;
 import java.util.Date;
@@ -27,7 +29,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static DatabaseHelper databaseHelper = null;
     private Dao<Reminder, Integer> reminderDao = null;
-    private Context context;
+    private static Context context;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION, R.raw.ormlite_config);
@@ -75,7 +77,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         }
     }
 
-    public List<Reminder> getAllReminders(){
+    public static List<Reminder> getAllReminders(){
         try {
             long current = System.currentTimeMillis();
             Dao<Reminder, Integer> reminderDao = DatabaseHelper.getHelper(context).getReminderDao();
@@ -89,7 +91,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         return null;
     }
 
-    public Reminder getReminderById(String reminderId){
+    public static Reminder getReminderById(String reminderId){
         try {
             Dao<Reminder, Integer> reminderDao = DatabaseHelper.getHelper(context).getReminderDao();
             List<Reminder> selectedRegion = reminderDao.queryBuilder().where().
@@ -102,7 +104,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         return null;
     }
 
-    public boolean deleteReminderById(String reminderId){
+    public static boolean deleteReminderById(int reminderId){
         try {
             Dao<Reminder, Integer> reminderDao = DatabaseHelper.getHelper(context).getReminderDao();
             DeleteBuilder<Reminder, Integer> deleteBuilder = reminderDao.deleteBuilder();
@@ -115,7 +117,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         return false;
     }
 
-    public boolean insertReminder(Reminder reminder){
+    public static boolean insertReminder(Reminder reminder){
         try {
             Dao<Reminder, Integer> reminderDao = DatabaseHelper.getHelper(context).getReminderDao();
             reminderDao.createOrUpdate(reminder);
@@ -126,7 +128,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         return false;
     }
 
-    public int getMaxReminderId(){
+    public static int getMaxReminderId(){
         try {
             Dao<Reminder, Integer> reminderDao = DatabaseHelper.getHelper(context).getReminderDao();
 
@@ -153,5 +155,33 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         }
 
         return -1;
+    }
+
+    public static List<Reminder> getTodaysReminders(boolean isToday){
+
+
+        Date startDate;
+        Date endDate;
+        if(isToday) {
+            startDate = new Date();
+            endDate = CalendarUtils.getEndOfDay(new Date());
+        } else {
+            startDate = CalendarUtils.getStartOfDay(CalendarUtils.getTomorrowDate());
+            endDate = CalendarUtils.getEndOfDay(CalendarUtils.getTomorrowDate());
+        }
+
+        try {
+            long start = startDate.getTime();
+            long end = endDate.getTime();
+            Dao<Reminder, Integer> reminderDao = DatabaseHelper.getHelper(context).getReminderDao();
+            List<Reminder> selectedRegion = reminderDao.queryBuilder().where().
+                    ge(Reminder.REMINDER_DATE, start).and().lt(Reminder.REMINDER_DATE, end).query();
+
+            return selectedRegion;
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+
     }
 }

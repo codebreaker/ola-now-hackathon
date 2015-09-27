@@ -7,11 +7,11 @@ import java.util.Date;
  */
 public class Reminder {
 
-    String reminderId;
+    int reminderId;
     String reminderName;
     long reminderDate;
 
-    public String getReminderId() {
+    public int getReminderId() {
         return reminderId;
     }
 
@@ -20,7 +20,7 @@ public class Reminder {
     }
 
 
-    public void setReminderId(String reminderId) {
+    public void setReminderId(int reminderId) {
         this.reminderId = reminderId;
     }
 
